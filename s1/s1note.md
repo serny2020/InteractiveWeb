@@ -1,3 +1,4 @@
+# React as a package
 Start up
 ------------------------------------------------
 Three step for rendering react
@@ -14,8 +15,8 @@ in the root
 
 Generating a Project
 ----------------------------------------------
-- npx create-react-app + project_name
-- run with npm start
+- `npx create-react-app <project name>`
+- run with `npm start`
 - open browser and goto localhost:3000
 - control + C to stop
 
