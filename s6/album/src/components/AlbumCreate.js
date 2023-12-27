@@ -1,7 +1,7 @@
 // use state to keep track of the user input with a control component
 import { useState } from "react"
 
-
+import './index.css'
 // use html form to capture the user input, this input is then handled by an 
 // event handler. User input is treated by a control component
 function AlbumCreate( {onCreate} ) {
@@ -20,11 +20,13 @@ function AlbumCreate( {onCreate} ) {
 
     {/*form onSubmit event will be triggered if user press enter or click the
        button,  */}
-    return (<div>
+    return (
+    <div className="book-create">
+        <h3>Add an Album</h3>
         <form onSubmit={handleSubmit}>
             <label>Title</label>
-            <input value={title} onChange={handleChange} />
-            <button>Create</button>
+            <input className="input" value={title} onChange={handleChange} />
+            <button className="button">Create</button>
         </form>
     </div>)
 }
