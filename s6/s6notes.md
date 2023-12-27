@@ -1,7 +1,6 @@
 # Album Display App
 ## Components
-1. App: main driver component integrate the AlbumCreate and AlbumList component
-which keep track of the app state
+1. App: main driver component integrate all the other components and  keep track of the app state
 and AlbumList
 2. AlbumCreate: at the bottom of the website to allow the user add a new album 
 to the list 

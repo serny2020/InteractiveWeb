@@ -9,6 +9,17 @@ import AlbumList from "./components/AlbumList"
 function App() {
     const [albums, setAlbums] = useState([])
 
+    //create a call back function that creates a new list with the designated 
+    //id of album deleted 
+    const deleteAlbumById = (id) => {
+        const updatedAlbums = albums.filter((album) => {
+            return album.id != id
+        })
+
+        //update the control system
+        setAlbums(updatedAlbums)
+    }
+
     {/*create a new list */}
     const createAlbum = (title) => {
         // console.log("need to add albumn with: ", title)
@@ -24,7 +35,7 @@ function App() {
     return (
     <div className="app">
         {/* {albums.length} */}
-        <AlbumList albums={albums}/>
+        <AlbumList albums={albums} onDelete={deleteAlbumById}/>
         <AlbumCreate onCreate={createAlbum}/>
     </div>)
 }
