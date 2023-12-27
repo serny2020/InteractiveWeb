@@ -1,7 +1,6 @@
 // use state to keep track of the user input with a control component
 import { useState } from "react"
 
-import './index.css'
 // use html form to capture the user input, this input is then handled by an 
 // event handler. User input is treated by a control component
 function AlbumCreate( {onCreate} ) {
