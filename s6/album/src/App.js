@@ -9,6 +9,18 @@ import AlbumList from "./components/AlbumList"
 function App() {
     const [albums, setAlbums] = useState([])
 
+    //function that takes the user input and creates a new list of albums
+    const editBookById = (id, newTitle) => {
+        const updatedAlbums = albums.map((album) => {
+            if (album.id === id) {
+                return {...album, title: newTitle}
+            }
+            return album
+        })
+        // update the state
+        setAlbums(updatedAlbums)
+    }
+
     //create a call back function that creates a new list with the designated 
     //id of album deleted 
     const deleteAlbumById = (id) => {
@@ -35,7 +47,8 @@ function App() {
     return (
     <div className="app">
         {/* {albums.length} */}
-        <AlbumList albums={albums} onDelete={deleteAlbumById}/>
+        <AlbumList onEdit={editBookById} albums={albums} 
+                                    onDelete={deleteAlbumById}/>
         <AlbumCreate onCreate={createAlbum}/>
     </div>)
 }

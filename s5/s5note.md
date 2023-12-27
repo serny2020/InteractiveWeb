@@ -24,13 +24,13 @@ ImageList
     function is invoked
 
 
-## Handle user input with form
+## Handle user input with **HTML FORM**
 - can detect submit event when user press the enter from the input
 - disable the form request behavior
     - `event.preventDefault();` to prevent page reload
-- use the react format to process the user input to take advantage
-of the state system and call back function (react render the input
-instantly when user type input)
+- use the react format to process the user input from the html form to 
+take advantage of the state system and call back function (react render 
+the input instantly when user type input)
 
 ## Rendering sequence
 - image list state is initialized inside the App with state system.
