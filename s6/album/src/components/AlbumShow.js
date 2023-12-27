@@ -29,6 +29,10 @@ function AlbumShow({album, onDelete, onEdit}) {
     }
 
     return (<div className="book-show">
+        <img 
+            alt="title"
+            src={`https://picsum.photos/seed/${album.id}/300/200`}
+        />
         <div>{content}</div>
         <div className="actions">
             <button className="edit" onClick={handleEdit}>

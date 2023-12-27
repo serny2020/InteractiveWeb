@@ -47,6 +47,7 @@ function App() {
     return (
     <div className="app">
         {/* {albums.length} */}
+        <h1>Play List</h1>
         <AlbumList onEdit={editBookById} albums={albums} 
                                     onDelete={deleteAlbumById}/>
         <AlbumCreate onCreate={createAlbum}/>

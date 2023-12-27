@@ -43,3 +43,7 @@ the children as props
 - factoring: combine the props of entering the edit mode (setShowEdit)
  and editing the album (onEdit) into a single props(onSubmit) that AlbumShow
  passed to AlbumEdit
+
+ ## Add images
+ - album image is from [picsum](https://picsum.photos/)
+ - use js string interpretation to create a random picture
