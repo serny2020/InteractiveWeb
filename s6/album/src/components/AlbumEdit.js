@@ -2,7 +2,7 @@
 import { useState } from "react"
 // this function display the user edit mode when the user clicked on the edit
 // button
-function AlbumEdit({album, onEdit, onSubmit}) {
+function AlbumEdit({album, onSubmit}) {
     const [title, setTitle] = useState(album.title)
 
     const handleChange = (event) => {
@@ -13,9 +13,8 @@ function AlbumEdit({album, onEdit, onSubmit}) {
     // submit the form (enter or submit the form)
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log('new title is ', title)
-        onEdit(album.id, title)
-        onSubmit()
+        // console.log('new title is ', title)
+        onSubmit(album.id, title)
     }
 
     return (

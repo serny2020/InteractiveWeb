@@ -40,4 +40,6 @@ to the list
 - use state system to change between edit mode and display mode
 - onEdit is a reference to the callback function editBookById, which passed to 
 the children as props
-- 
+- factoring: combine the props of entering the edit mode (setShowEdit)
+ and editing the album (onEdit) into a single props(onSubmit) that AlbumShow
+ passed to AlbumEdit

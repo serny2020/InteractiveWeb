@@ -17,16 +17,15 @@ function AlbumShow({album, onDelete, onEdit}) {
         setShowEdit(!showEdit)
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (id, newTitle) => {
         setShowEdit(false)
-        onEdit()
+        onEdit(id, newTitle)
     }
 
     let content = <h3>{album.title}</h3>
     if (showEdit) {
         // pass the albums props down to the AlbumEdit component
-        content = <AlbumEdit onSubmit={handleSubmit} onEdit={onEdit} 
-                                                                album={album}/>
+        content = <AlbumEdit  onSubmit={handleSubmit} album={album}/>
     }
 
     return (<div className="book-show">
