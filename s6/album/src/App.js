@@ -2,6 +2,7 @@
 import { useState } from "react"
 
 import AlbumCreate from "./components/AlbumCreate"
+import AlbumList from "./components/AlbumList"
 
 // app function pass an event handler to the child component (AlbumCreate) and 
 // update the piece of state based on the props received from the AlbumCreate
@@ -20,8 +21,10 @@ function App() {
         setAlbums(updateAlbums)
     }
 
-    return (<div>
-        {albums.length}
+    return (
+    <div className="app">
+        {/* {albums.length} */}
+        <AlbumList albums={albums}/>
         <AlbumCreate onCreate={createAlbum}/>
     </div>)
 }
