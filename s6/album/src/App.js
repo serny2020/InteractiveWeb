@@ -8,11 +8,20 @@ import AlbumCreate from "./components/AlbumCreate"
 function App() {
     const [albums, setAlbums] = useState([])
 
+    {/*create a new list */}
     const createAlbum = (title) => {
-        console.log("need to add albumn with: ", title)
+        // console.log("need to add albumn with: ", title)
+        const updateAlbums = [...albums, 
+            {
+                // create random and hopfully unique ids
+                id: Math.round(Math.random() * 1000), 
+                title
+            }]
+        setAlbums(updateAlbums)
     }
 
     return (<div>
+        {albums.length}
         <AlbumCreate onCreate={createAlbum}/>
     </div>)
 }
