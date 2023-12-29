@@ -1,0 +1,24 @@
+{
+  "albums": [
+    {
+      "title": "The Best Part (interlude)",
+      "id": 1
+    },
+    {
+      "title": "All About That Bass [Explicit]",
+      "id": 2
+    },
+    {
+      "title": "Close Your Eyes",
+      "id": 4
+    },
+    {
+      "title": "To Dear Future Husband",
+      "id": 5
+    },
+    {
+      "title": "TEST",
+      "id": 6
+    }
+  ]
+}
