@@ -1,6 +1,6 @@
 // import state to keep track of the book status
-import { useState } from "react"
-
+import { useState, useEffect } from "react"
+import axios from 'axios'
 import AlbumCreate from "./components/AlbumCreate"
 import AlbumList from "./components/AlbumList"
 
@@ -9,11 +9,26 @@ import AlbumList from "./components/AlbumList"
 function App() {
     const [albums, setAlbums] = useState([])
 
+    //get data from the server
+    const fetchRequest = async () => {
+        const response = await axios.get('http://localhost:3001/albums')
+        setAlbums(response.data)
+    }
+
+    //only allow the function to be called once
+    useEffect(() => {
+        fetchRequest()
+    }, [])
     //function that takes the user input and creates a new list of albums
-    const editBookById = (id, newTitle) => {
+    const editBookById = async (id, newTitle) => {
+        const response = await axios.put(`http://localhost:3001/albums/${id}`, {
+            title: newTitle
+        })
+        // console.log(response)
+        // update the local data (need to update the whole album objects!!)
         const updatedAlbums = albums.map((album) => {
             if (album.id === id) {
-                return {...album, title: newTitle}
+                return {...album, ...response.data}
             }
             return album
         })
@@ -23,7 +38,8 @@ function App() {
 
     //create a call back function that creates a new list with the designated 
     //id of album deleted 
-    const deleteAlbumById = (id) => {
+    const deleteAlbumById = async (id) => {
+        await axios.delete(`http://localhost:3001/albums/${id}`)
         const updatedAlbums = albums.filter((album) => {
             return album.id != id
         })
@@ -33,21 +49,20 @@ function App() {
     }
 
     {/*create a new list */}
-    const createAlbum = (title) => {
-        // console.log("need to add albumn with: ", title)
-        const updateAlbums = [...albums, 
-            {
-                // create random and hopfully unique ids
-                id: Math.round(Math.random() * 1000), 
-                title
-            }]
-        setAlbums(updateAlbums)
+    const createAlbum = async (title) => {
+        // add new request
+        const response = await axios.post('http://localhost:3001/albums', {
+            title
+        })
+        // console.log(response)
+        const updatedAlbums = [...albums, response.data]
+        setAlbums(updatedAlbums)
     }
 
     return (
     <div className="app">
         {/* {albums.length} */}
-        <h1>Collection</h1>
+        <h1>Play List</h1>
         <AlbumList onEdit={editBookById} albums={albums} 
                                     onDelete={deleteAlbumById}/>
         <AlbumCreate onCreate={createAlbum}/>
