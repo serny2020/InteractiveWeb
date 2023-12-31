@@ -1,4 +1,4 @@
-import {createContext, useState} from 'react'
+import {createContext, useState, useCallback} from 'react'
 import axios from 'axios'
 
 const AlbumsContext = createContext()
@@ -15,10 +15,10 @@ function Provider({children}) {
     const [albums, setAlbums] = useState([])
 
     //get data from the server
-    const fetchRequest = async () => {
+    const fetchRequest = useCallback (async () => {
         const response = await axios.get('http://localhost:3001/albums')
         setAlbums(response.data)
-    }
+    }, [])
     //function that takes the user input and creates a new list of albums
     const editAlbumById = async (id, newTitle) => {
         const response = await axios.put(`http://localhost:3001/albums/${id}`, {
