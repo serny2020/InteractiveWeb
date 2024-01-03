@@ -1,2 +1,2 @@
 # InteractiveWeb
-Build with React
+Project for Udemy Course--Modern React with Redux
