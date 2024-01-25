@@ -12,7 +12,7 @@ App            --> Provider
 ```
 
 
-## React Context
+## React Context -- data sharing
 - context is an alternative to the props system
 - allow many of the components to share the data even if they don't have direct
 link to each other
@@ -27,7 +27,7 @@ that wrap context provider (sharing the data across different child components)
 - Application state: use across different components (state should be inside the
 context)
 - Component state: only used within a few components 
-- made a custom hook to put useContext into a sperate file to achieve modularity
+- made a custom hook to put **`useContext`** into a sperate file to achieve modularity
 
 ## Fixing ESLint issue
 - ESLint gives warning about useEffect does not have dependency in the array
